@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link type="text/css" rel="stylesheet" href="styles/mystyle.css" media="screen"> 
+    <meta charset="utf-8">
+<link rel="shortcut icon" href="images/favicon.ico">
+    <title>Web Portfolio: Javan Roundtree's javascript Page</title>
+<style>
+    div#clock { 
+      border: 2px solid black;
+  border-top-left-radius: 1em 1em; /* rounded corner! */
+  border-top-right-radius: 1em 1em; /* another rounded corner! */
+background-image: url(http://influa.com/wp-content/uploads/2016/03/Material-design.jpg);
+	 background-repeat:no-repeat;
+    background-size:cover;	
+    }
+  </style>
+  <script>
+  function showAlert() { 
+    var myText = "JAVASCRIPT";
+    alert (myText);
+  }
+ function updateTime() { 
+
+
+  	// get all parts of the current time
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    
+    // splice them together into a character string named "currentTime"
+   var currentTime = hours + ':' + minutes + ':' + seconds + '  ' + timeOfDay; 
+    
+    // get the clock div 
+    var myClock = document.getElementById('clock');
+    
+    // write the currentTime string to the clock div
+    myClock.innerHTML = currentTime;
+  }
+   // add leading zero's to minutes and seconds
+  if (minutes < 10) { 
+    minutes = '0' + minutes;
+  }
+  if (seconds < 10) { 
+    seconds = '0' + seconds;
+  }				
+
+  // get time of day (am or pm) 
+  if (hours >= 12 && hours < 24) { 
+    var timeOfDay = 'pm';
+  }
+  else { 
+    var timeOfDay = 'am'; 
+  }
+				
+  // convert hours from 24-hour time to 12-hour time
+  if (hours > 12) { 
+    hours = hours - 12;
+  }
+
+ function toggleClock() { 
+    // get the clock 
+    var myClock = document.getElementById('clock');
+
+    // get the current value of the clock's display property 
+    var displaySetting = myClock.style.display;
+
+    // also get the clock button, so we can change what it says 
+    var clockButton = document.getElementById('clockButton');
+				
+    // now toggle the clock and the button text, depending on current state
+    if (displaySetting == 'block') { 
+      // clock is visible. hide it
+      myClock.style.display = 'none';
+      // change button text
+      clockButton.innerHTML = 'Show clock';
+    }
+    else { 
+      // clock is hidden. show it 
+      myClock.style.display = 'block';
+      // change button text
+      clockButton.innerHTML = 'Hide clock';
+    }
+  }  
+
+  </script>
+
+  </head>
+
+  <body onload="setInterval('updateTime()',1000)">
+
+<img src="images/Banner.jpg" alt="Bannner" style="width:1000px;height:220px;">
+      <a href="#main">Skip to main content</a>
+      <h1>Web Portfolio</h1>
+<div id="skipnav">
+<ul>
+<li>Javan Roundtree </li>
+<li><a href="mailto:javan.roundtree.2019@student.lhschools.org">javan.roundtree.2019@student.lhschools.org</a> <a href="javan.roundtree.2019@student.lhschools.org">
+    <img src="images/MAIL BUTTON.png" width="64" height="64" style="border:none" 
+         alt="MAIL" /> </a> </li>
+</ul>
+</div>
+<br/>
+<div>
+
+<ul>
+ <li> Mrs. Stagg Computer programming </li>
+<br><li>2nd period </li></br>
+
+</ul>
+</div>
+
+ 
+<ul>
+<Li><a href="index.html">Home</a>
+<Li><a href="accessibility.html">Accessibility</a>
+<Li><a href="Usability.html">Usabillity</a>
+<Li><a href="Graphics.html">Graphics</a>
+<Li><a href="Tools.html">Tools</a>
+<Li><a href="Javascript.html">Javascript</a>
+<Li><a href="Video.html">Video</a>
+
+</ul>
+<div id="clock"><body onload="updateTime()"></div>
+
+<main id="main">
+   <button button onclick="showAlert()">Show alert</button>
+<button button onclick="toggleClock()">Show Time</button>
+  </body>
+</main>
+</html>

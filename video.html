@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link type="text/css" rel="stylesheet" href="styles/mystyle.css" media="screen"> 
+    <meta charset="utf-8">
+<link rel="shortcut icon" href="images/favicon.ico">
+<script>
+// create a few global variables to be used later 
+var video, speed, volume;
+      
+function init() { 
+  // initialize the player 
+  // first, get the media element and assign it to the video variable
+  video = document.getElementById('myvideo');      
+
+  // get the current playbackRate from the HTML5 media API 
+  // range is 0 to very fast, with 1 being normal playback 
+  speed = video.playbackRate;         
+
+  // volume range is 0 to 1 
+  // set it in the middle so we have room to move it with our buttons
+  volume = 0.5;
+  video.volume = volume; 
+}
+             
+function play() {       
+  video.play(); 
+}
+      
+function pause() {       
+  video.pause();
+}
+      
+function changeSpeed(direction) { 
+  // direction is either 'up' (faster) or 'down' (slower) 
+  if (direction == 'up') { 
+    if (speed < 10) { 
+      // increase playbackRate 
+      speed = speed + 0.1; 
+    }
+  }  
+  else if (direction == 'down') { 
+    if (speed > 0) {
+      // decrease playbackRate
+      speed = speed - 0.1; 
+    }
+  }
+  // so far all we've done is change the value of our speed variable 
+  // not let's assign it to the player 
+  video.playbackRate = speed;           
+}
+      
+function changeVolume(direction) { 
+  if (direction == 'up') { 
+    // if not fully cranked yet, increase volume 
+    if (volume < 0.9) {
+      volume = volume + 0.1; 
+    }
+  }  
+  else if (direction == 'down') { 
+    // if not muted, decrease volume
+    if (volume > 0.1) {  
+      volume = volume - 0.1; 
+    }
+  }       
+  // so far all we've done is change the value of our volume variable 
+  // not let's assign it to the player 
+  video.volume = volume;            
+} 
+      
+// wait until the web page has finished loading, then run the init function
+window.onload = init;
+</script>
+
+    <title>Web Portfolio: Javan Roundtree's video Page</title>
+  </head>
+  <body>
+<img src="images/Banner.jpg" alt="Bannner" style="width:1000px;height:220px;">
+      <a href="#main">Skip to main content</a>
+<h1>Video</h1>
+<div id="skipnav">
+<ul>
+<li>Javan Roundtree </li>
+<li><a href="mailto:javan.roundtree.2019@student.lhschools.org">javan.roundtree.2019@student.lhschools.org</a> </li>
+</ul>
+</div>
+<br/>
+<div>
+
+<ul>
+ <li> Mrs. Stagg Computer programming </li>
+<br><li>2nd period </li></br>
+<li><a href="http://www.licking-heights.k12.oh.us/">Licking heights highschool</a> 2016 
+<a href="javan.roundtree.2019@student.lhschools.org">
+    <img src="images/MAIL BUTTON.png" width="64" height="64" style="border:none" 
+         alt="MAIL" /> </a></li>
+</ul>
+</div>
+
+
+<ul>
+<Li><a href="index.html">Home</a>
+<Li><a href="accessibility.html">Accessibility</a>
+<Li><a href="Usability.html">Usabillity</a>
+<Li><a href="Graphics.html">Graphics</a>
+<Li><a href="Tools.html">Tools</a>
+<Li><a href="Javascript.html">Javascript</a>
+<Li><a href="Video.html">Video</a>
+</ul>
+
+
+<main id="main">
+    <h1>Web Portfolio: Video</h1>
+<p> Here's a video </p>
+  <video id="myvideo">
+ 
+  <source src="http://www.washington.edu/accesscomputing/webd2/videos/code.mp4" type="video/mp4">
+  <source src="http://www.washington.edu/accesscomputing/webd2/videos/code.webm" type="video/webm">
+<track src="http://www.washington.edu/accesscomputing/webd2/videos/code.vtt" kind="captions" srclang="en" default>
+
+</video> 
+<div id="myplayer">
+  <button onclick="play()">Play</button>
+  <button onclick="pause()">Pause</button>
+  <button onclick="changeSpeed('up')">Faster</button>
+  <button onclick="changeSpeed('down')">Slower</button>
+  <button onclick="changeVolume('up')">Louder</button>
+  <button onclick="changeVolume('down')">Softer</button>
+</div>
+
+</div> 
+
+
+  </body>
+</main>
+</html>
